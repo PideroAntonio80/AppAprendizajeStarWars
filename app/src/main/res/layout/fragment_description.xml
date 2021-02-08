@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".listnasa.DescriptionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="32"
+                android:gravity="center"
+                android:text="@string/copyright_title"
+                android:textSize="20sp"
+                android:fontFamily="@font/russo_one"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/tvCopyright"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="65"
+                android:gravity="center_vertical"
+                tools:text="Copyright"
+                android:textSize="15sp"
+                android:fontFamily="@font/russo_one"
+                android:textColor="@color/colorBlack"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:layout_margin="8dp"
+            tools:text="Descripcion de la fotografía..."
+            android:fontFamily="@font/russo_one"
+            android:textColor="@color/colorGold"
+            android:background="@color/colorBlack"/>
+
+        <ImageView
+            android:id="@+id/ivImageDescription"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="60"
+            android:scaleType="fitXY"
+            android:src="@drawable/nasados" />
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

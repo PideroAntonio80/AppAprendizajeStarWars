@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.svalero.appaprendizaje.R;
 import com.svalero.appaprendizaje.beans.Nasa;
-import com.svalero.appaprendizaje.listnasa.contract.List_nasa_contract;
-import com.svalero.appaprendizaje.listnasa.presenter.List_nasa_presenter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,35 +23,22 @@ public class DescriptionFragment extends Fragment /*implements List_nasa_contrac
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String EXTRA_NASA = "param1";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Nasa nasa;
     private View vista;
     private ImageView image;
     private TextView descripcion, copyright;
-    private List_nasa_presenter list_nasa_presenter;
 
     public DescriptionFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DescriptionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DescriptionFragment newInstance(String param1, String param2) {
+    public static DescriptionFragment newInstance(Nasa nasa) {
         DescriptionFragment fragment = new DescriptionFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(EXTRA_NASA, nasa);
         fragment.setArguments(args);
         return fragment;
     }
@@ -62,23 +47,24 @@ public class DescriptionFragment extends Fragment /*implements List_nasa_contrac
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            nasa = (Nasa) getArguments().getSerializable(EXTRA_NASA);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        initViews();
-
-        /*list_nasa_presenter = new List_nasa_presenter(this);
-        list_nasa_presenter.getListNasa();*/
 
         vista = inflater.inflate(R.layout.fragment_description, container, false);
+        initViews();
+        loadData(nasa);
         return vista;
+    }
+
+    public void loadData(Nasa nasa) {
+        copyright.setText(nasa.getCopyright());
+        descripcion.setText(nasa.getExplanation());
+        Picasso.get().load(nasa.getUrlImage()).into(image);
     }
 
     public void initViews() {

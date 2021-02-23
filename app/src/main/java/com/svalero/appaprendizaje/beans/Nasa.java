@@ -1,16 +1,22 @@
 package com.svalero.appaprendizaje.beans;
 
-public class Nasa {
-    private String title;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+public class Nasa implements Serializable {
+    @SerializedName("title")
+    private String titulo;
     private String copyright;
     private String explanation;
-    private String url;
+    @SerializedName("url")
+    private String urlImage;
 
-    public String getTitle() {
-        return title;
+    public String getTitulo() {
+        return titulo;
     }
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
     public String getCopyright() {
         return copyright;
@@ -24,10 +30,12 @@ public class Nasa {
     public void setExplanation(String explanation) {
         this.explanation = explanation;
     }
-    public String getUrl() {
-        return url;
+    public String getUrlImage() {
+        return urlImage;
     }
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
+
 }
+

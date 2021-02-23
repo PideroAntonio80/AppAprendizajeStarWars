@@ -76,7 +76,7 @@ public class List_nasa_activity extends AppCompatActivity implements List_nasa_c
        this.nasa = nasa;
        titulo.setText(nasa.getTitulo());
        showFragment(MainFragment.newInstance(nasa));
-        Toast.makeText(this, "Hola !!!!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Hola", Toast.LENGTH_SHORT).show();
     }
 
     @Override

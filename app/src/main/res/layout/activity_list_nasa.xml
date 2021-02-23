@@ -11,7 +11,7 @@
 
     tools:context=".listnasa.view.List_nasa_activity">
 
-    <Button
+    <TextView
         android:id="@+id/bTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -28,14 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="90">
-
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_background" />
-
     </FrameLayout>
 
 </LinearLayout>
